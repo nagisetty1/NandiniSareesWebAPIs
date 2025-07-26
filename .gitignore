@@ -58,3 +58,6 @@ nunit-*.xml
 /.vs/slnx.sqlite
 /.vs/slnx.sqlite-journal
 *.json
+/NN.NandiniSareesWebAPIs/.vs/NN.NandiniSareesWebAPIs/CopilotIndices/17.12.38.29086
+*.vsidx
+*.suo
