@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using NN.NandiniSareesWebAPIs.Models;
+using NN.NandiniSarees.Models;
 
 namespace NN.NandiniSareesWebAPIs.Controllers
 {

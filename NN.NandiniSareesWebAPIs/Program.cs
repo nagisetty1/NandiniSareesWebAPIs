@@ -1,4 +1,7 @@
 
+using Microsoft.EntityFrameworkCore;
+using NN.NandiniSarees.Repositories;
+
 namespace NN.NandiniSareesWebAPIs
 {
     public class Program
@@ -7,6 +10,14 @@ namespace NN.NandiniSareesWebAPIs
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            builder.Services.AddDbContext<NNSareesDbContext>(options =>
+                options.UseSqlServer(
+                    builder.Configuration.GetConnectionString("DefaultConnection"),
+                    sqlOptions => sqlOptions.EnableRetryOnFailure()
+                )
+            );
+
+            builder.Services.AddScoped<ISareesRepository, SareesRepository>();
             // Add services to the container.
 
             builder.Services.AddControllers();
