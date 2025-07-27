@@ -60,6 +60,7 @@ namespace NN.NandiniSareesWebAPIs
 
             builder.Services.AddScoped<ISareesRepository, SareesRepository>();
             builder.Services.AddScoped<IUsersRepository, UsersRepository>();
+            builder.Services.AddScoped<IUsersJWTTokenRepository, UsersJWTTokenRepository>();
             builder.Services.AddScoped<IAuthService, AuthService>();
             // Add services to the container.
 

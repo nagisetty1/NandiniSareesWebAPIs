@@ -11,16 +11,29 @@ namespace NN.SareesServices
     public class AuthService : IAuthService
     {
         private readonly IUsersRepository _usersRepository;
-        public AuthService(IUsersRepository usersRepository) => _usersRepository = usersRepository;
-
-        public async Task<User?> AuthenticateAsync(string username, string password)
+        private readonly IUsersJWTTokenRepository _usersJWTTokenRepository;
+        public AuthService(IUsersRepository usersRepository, IUsersJWTTokenRepository usersJWTTokenRepository) 
         {
+            _usersRepository = usersRepository;
+            _usersJWTTokenRepository = usersJWTTokenRepository;
+        }
+
+        public async Task<UserJWTToken?> AuthenticateAsync(string username, string password)
+        {
+            var userUI = new UserJWTToken();
             var user = await _usersRepository.GetByUsernameAsync(username);
             if (user == null) return null;
 
             // Use a secure password hash comparison here
             if (password.ToLower() == user.PasswordHash.ToLower())
-                return user;
+            {
+
+                userUI.Username = user.Username;
+                userUI.UserId = user.Id;
+                userUI.EmailId = user.Email;
+                userUI = await _usersJWTTokenRepository.AddAsync(userUI);
+                return userUI;
+            }
 
             return null;
         }

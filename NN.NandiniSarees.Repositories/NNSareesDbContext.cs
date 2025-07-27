@@ -13,6 +13,7 @@ namespace NN.NandiniSarees.Repositories
         public NNSareesDbContext(DbContextOptions<NNSareesDbContext> options) : base(options) { }
         public DbSet<Sarees> Sarees { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<UserJWTToken> UserJWTToken { get; set; }
 
     }
 }
