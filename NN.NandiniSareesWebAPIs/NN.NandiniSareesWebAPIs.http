@@ -1,0 +1,6 @@
+@NN.NandiniSareesWebAPIs_HostAddress = http://localhost:5223
+
+GET {{NN.NandiniSareesWebAPIs_HostAddress}}/home/
+Accept: application/json
+
+###
