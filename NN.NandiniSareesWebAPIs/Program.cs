@@ -1,6 +1,11 @@
 
 using Microsoft.EntityFrameworkCore;
 using NN.NandiniSarees.Repositories;
+using NN.SareesServices;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Google;
+using Microsoft.AspNetCore.Authentication.MicrosoftAccount;
+
 
 namespace NN.NandiniSareesWebAPIs
 {
@@ -20,8 +25,42 @@ namespace NN.NandiniSareesWebAPIs
                     }
                 )
             );
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowFrontend", policy =>
+                {
+                    policy.WithOrigins("https://localhost:7192") // Replace with your frontend URL
+                          .AllowAnyHeader()
+                          .AllowAnyMethod();
+                });
+            });
+
+            builder.Services.AddAuthentication(options =>
+            {
+                options.DefaultScheme = "Cookies";
+                options.DefaultChallengeScheme = "External";
+            })
+            .AddCookie("Cookies")
+            .AddGoogle(googleOptions =>
+            {
+                googleOptions.ClientId = builder.Configuration["Authentication:Google:ClientId"];
+                googleOptions.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"];
+            })
+            .AddMicrosoftAccount(microsoftOptions =>
+            {
+                microsoftOptions.ClientId = builder.Configuration["Authentication:Microsoft:ClientId"];
+                microsoftOptions.ClientSecret = builder.Configuration["Authentication:Microsoft:ClientSecret"];
+            })
+            .AddLinkedIn(linkedInOptions =>
+            {
+                linkedInOptions.ClientId = builder.Configuration["Authentication:LinkedIn:ClientId"];
+                linkedInOptions.ClientSecret = builder.Configuration["Authentication:LinkedIn:ClientSecret"];
+            });
+
 
             builder.Services.AddScoped<ISareesRepository, SareesRepository>();
+            builder.Services.AddScoped<IUsersRepository, UsersRepository>();
+            builder.Services.AddScoped<IAuthService, AuthService>();
             // Add services to the container.
 
             builder.Services.AddControllers();
@@ -30,7 +69,7 @@ namespace NN.NandiniSareesWebAPIs
             builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
-
+            app.UseCors("AllowFrontend");
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
@@ -39,7 +78,7 @@ namespace NN.NandiniSareesWebAPIs
             }
 
             app.UseHttpsRedirection();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
 
