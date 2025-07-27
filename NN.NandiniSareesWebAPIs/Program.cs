@@ -13,7 +13,11 @@ namespace NN.NandiniSareesWebAPIs
             builder.Services.AddDbContext<NNSareesDbContext>(options =>
                 options.UseSqlServer(
                     builder.Configuration.GetConnectionString("DefaultConnection"),
-                    sqlOptions => sqlOptions.EnableRetryOnFailure()
+                    sqlOptions =>
+                    {
+                        sqlOptions.EnableRetryOnFailure();
+                        sqlOptions.MigrationsAssembly("NN.NandiniSareesWebAPIs");
+                    }
                 )
             );
 
