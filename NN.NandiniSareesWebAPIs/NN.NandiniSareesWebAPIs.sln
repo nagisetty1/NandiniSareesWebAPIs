@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NN.NandiniSarees.Repositori
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NN.NandiniSarees.Models", "..\NN.NandiniSarees.Models\NN.NandiniSarees.Models.csproj", "{6CCEB66D-B911-47B3-B2F5-D808AD6DEC1C}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "NNSarees", "..\NNSarees\NNSarees.sqlproj", "{183C3064-5C7E-4ACE-B305-749B9405A7E7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,12 @@ Global
 		{6CCEB66D-B911-47B3-B2F5-D808AD6DEC1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6CCEB66D-B911-47B3-B2F5-D808AD6DEC1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6CCEB66D-B911-47B3-B2F5-D808AD6DEC1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{183C3064-5C7E-4ACE-B305-749B9405A7E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{183C3064-5C7E-4ACE-B305-749B9405A7E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{183C3064-5C7E-4ACE-B305-749B9405A7E7}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{183C3064-5C7E-4ACE-B305-749B9405A7E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{183C3064-5C7E-4ACE-B305-749B9405A7E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{183C3064-5C7E-4ACE-B305-749B9405A7E7}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
