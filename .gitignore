@@ -57,11 +57,14 @@ nunit-*.xml
 /.vs/NetCoreWebAPIs/FileContentIndex
 /.vs/slnx.sqlite
 /.vs/slnx.sqlite-journal
-*.json
 /NN.NandiniSareesWebAPIs/.vs/NN.NandiniSareesWebAPIs/CopilotIndices/17.12.38.29086
 *.vsidx
 *.suo
 /NN.NandiniSareesWebAPIs/.vs/NN.NandiniSareesWebAPIs/copilot-chat/f39e45f9/sessions
 /NN.NandiniSareesWebAPIs/.vs/NN.NandiniSareesWebAPIs/config
+/NN.NandiniSareesWebAPIs/.vs/NN.NandiniSareesWebAPIs/DesignTimeBuild/.dtbcache.v2
+/NN.NandiniSareesWebAPIs/.vs/NN.NandiniSareesWebAPIs/v17/.futdcache.v2
+/.vs
+/NN.NandiniSareesWebAPIs/.vs/NN.NandiniSareesWebAPIs/v17
 /NN.NandiniSareesWebAPIs/.vs/NN.NandiniSareesWebAPIs/DesignTimeBuild/.dtbcache.v2
 *.v2
